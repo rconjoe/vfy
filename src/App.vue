@@ -13,12 +13,13 @@
               >
               {{ link.label }}
           </v-btn>
+          <v-btn @click="toggleTheme" text rounded>Toggle Theme</v-btn>
       </v-app-bar>
       <v-content>
           <router-view />
       </v-content>
       <!-- footer -->
-      <v-footer app color="primary lighten-1" padless>
+      <v-footer app color="primary lighten-1" dark padless>
           <v-layout justify-center wrap>
               <v-btn
                   v-for="link in links"
@@ -64,5 +65,10 @@ export default {
           },
       ] 
   }),
+    methods: {
+        toggleTheme() {
+            this.$vuetify.theme.dark =!this.$vuetify.theme.dark
+        }
+    }
 };
 </script>
